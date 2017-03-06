@@ -1,36 +1,53 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
 
 	public static void main(String[] args) {
 		NoteBook noteBook = new NoteBook();
 
-		ArrayList<Note> result = initNotes();
-		for (Note note : result) {
+		ArrayList<Note> noteList = initNotes();
+		for (Note note : noteList) {
 			noteBook.addRecords(note);
-			//System.out.println(note);
+		
 		}
-		ArrayList<Note> bla = noteBook.findByLastName("Last Name # 2");
-		for (Note note : bla) {
-			System.out.println(note);
-		}
+
+		// Search by LastName
+		/*
+		 * ArrayList<Note> searchResult =
+		 * noteBook.findByLastName("Last Name # 2"); for (Note note :
+		 * searchResult){ System.out.println(note); }
+		 */
+		
+		sortByDob(noteList);
 
 	}
 
 	public static ArrayList<Note> initNotes() {
-		ArrayList<Note> result = new ArrayList<>();
+		ArrayList<Note> noteList = new ArrayList<>();
 
 		String firstName = "First Name # ";
 		String lastName = "Last Name # ";
-		for (int i = 0; i < 100; i++) {
+		int dob = 19860101;
+
+		for (int i = 0; i < 10; i++) {
 			Note note = new Note();
 			note.setFirstName(firstName + i);
 			note.setLastName(lastName + i);
-			result.add(note);
+			note.setDob(dob + i);
+			noteList.add(note);
 		}
 
-		return result;
+		return noteList;
 
+	}
+
+	public static void sortByDob(ArrayList<Note> noteList) {
+		Collections.sort(noteList, NoteBook.sortByDobDesc);
+		
+		for (int i = 0; i < noteList.size(); i++) {
+			System.out.println(noteList.get(i));
+		}
 	}
 
 }

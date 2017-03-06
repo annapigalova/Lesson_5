@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class NoteBook {
 
@@ -30,4 +31,29 @@ public class NoteBook {
 		return resultList;
 
 	}
+
+	public static Comparator<Note> sortByLastFirstName = new Comparator<Note>() {
+		public int compare(Note n1, Note n2) {
+			String lastName1 = n1.getLastName();
+			String lastName2 = n2.getLastName();
+
+			if (lastName1.compareTo(lastName2) == 0) {
+				String firstName1 = n1.getFirstName();
+				String firstName2 = n2.getFirstName();
+				return firstName1.compareTo(firstName2);
+			} else {
+				return lastName1.compareTo(lastName2);
+			}
+
+		}
+
+	};
+
+	public static Comparator<Note> sortByDobDesc = new Comparator<Note>() {
+		public int compare(Note n1, Note n2) {
+
+			return Integer.compare(n2.getDob(), n1.getDob());
+
+		}
+	};
 }

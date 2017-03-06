@@ -1,8 +1,9 @@
 
 public class Note {
+	
 	private String lastName;
 	private String firstName;
-	private String dob;
+	private int dob;
 	private int cellNum;
 	
 
@@ -22,11 +23,11 @@ public class Note {
 		this.firstName = firstName;
 	}
 
-	public String getDob() {
+	public int getDob() {
 		return dob;
 	}
 
-	public void setDob(String dob) {
+	public void setDob(int dob) {
 		this.dob = dob;
 	}
 
