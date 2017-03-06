@@ -4,7 +4,7 @@ public class Note {
 	private String lastName;
 	private String firstName;
 	private int dob;
-	private int cellNum;
+	private String cellNum;
 	
 
 	public String getLastName() {
@@ -31,11 +31,11 @@ public class Note {
 		this.dob = dob;
 	}
 
-	public int getCellNum() {
+	public String getCellNum() {
 		return cellNum;
 	}
 
-	public void setCellNum(int cellNum) {
+	public void setCellNum(String cellNum) {
 		this.cellNum = cellNum;
 	}
 

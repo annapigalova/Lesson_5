@@ -9,8 +9,24 @@ public class Main {
 		ArrayList<Note> noteList = initNotes();
 		for (Note note : noteList) {
 			noteBook.addRecords(note);
-		
 		}
+		
+		// Init object for variable-length arguments
+		Note note1 = new Note();
+		note1.setLastName("Ivanov");
+		note1.setFirstName("Ivan");
+		note1.setDob(19910514);
+		note1.setCellNum("01-01-01");
+
+		Note note2 = new Note();
+		note2.setLastName("Petrov");
+		note2.setFirstName("Petr");
+		note2.setDob(19910114);
+		note2.setCellNum("02-02-02");
+
+		noteBook.addRecords(note1, note2);
+
+		//
 
 		// Search by LastName
 		/*
@@ -18,8 +34,8 @@ public class Main {
 		 * noteBook.findByLastName("Last Name # 2"); for (Note note :
 		 * searchResult){ System.out.println(note); }
 		 */
-		
-		sortByDob(noteList);
+
+		  sortByDob(noteBook.getNoteList());
 
 	}
 
@@ -44,7 +60,7 @@ public class Main {
 
 	public static void sortByDob(ArrayList<Note> noteList) {
 		Collections.sort(noteList, NoteBook.sortByDobDesc);
-		
+
 		for (int i = 0; i < noteList.size(); i++) {
 			System.out.println(noteList.get(i));
 		}

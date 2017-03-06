@@ -11,8 +11,13 @@ public class NoteBook {
 
 	public void addRecords(Note... args) {
 		for (Note n : args) {
-			noteList.add(n);
+			addRecord(n);
 		}
+	}
+	
+	public void addRecord(Note note)
+	{
+		noteList.add(note);
 	}
 
 	public void removeRecord(Note note) {
@@ -37,12 +42,14 @@ public class NoteBook {
 			String lastName1 = n1.getLastName();
 			String lastName2 = n2.getLastName();
 
-			if (lastName1.compareTo(lastName2) == 0) {
+			int lastNameSort = lastName1.compareTo(lastName2);
+
+			if (lastNameSort == 0) {
 				String firstName1 = n1.getFirstName();
 				String firstName2 = n2.getFirstName();
 				return firstName1.compareTo(firstName2);
 			} else {
-				return lastName1.compareTo(lastName2);
+				return lastNameSort;
 			}
 
 		}
