@@ -5,7 +5,8 @@ public class NoteBook {
 
 	private ArrayList<Note> noteList = new ArrayList<>();
 
-	public ArrayList<Note> getNoteList() {
+	public ArrayList<Note> getNoteList() {// при использовании коллекций лучше возвращать List, Set, т.е. интерфейсы
+		// а так - молодец!
 		return noteList;
 	}
 
